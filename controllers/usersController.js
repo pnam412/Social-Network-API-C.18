@@ -1,15 +1,15 @@
-const { Course, Student } = require('../models');
+const { User, Thought } = require('../models');
 
 module.exports = {
   // Get all users
   getUsers(req, res) {
-    Course.find()
+    User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
   // Get a usersController
   getSingleUsers(req, res) {
-    Users.findOne({ _id: req.params.userId })
+    User.findOne({ _id: req.params.userId })
       .select('-__v')
       .then((usersController) =>
         !usersController
@@ -20,7 +20,7 @@ module.exports = {
   },
   // Create a usersController
   createUsers(req, res) {
-    Users.create(req.body)
+    User.create(req.body)
       .then((usersController) => res.json(usersController))
       .catch((err) => {
         console.log(err);
@@ -29,7 +29,7 @@ module.exports = {
   },
   // Delete a usersController
   deleteUsers(req, res) {
-    Users.findOneAndDelete({ _id: req.params.usersId })
+    User.findOneAndDelete({ _id: req.params.usersId })
       .then((usersController) =>
         !usersController
           ? res.status(404).json({ message: 'No usersController with that ID' })
@@ -40,8 +40,8 @@ module.exports = {
   },
   // Update a usersController
   updateUsers(req, res) {
-    Users.findOneAndUpdate(
-      { _id: req.params.courseId },
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
       { $set: req.body },
       { runValidators: true, new: true }
     )

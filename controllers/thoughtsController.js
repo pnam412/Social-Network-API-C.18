@@ -25,7 +25,7 @@ const users = async (thoughtsId) =>
 
 module.exports = {
   // Get all thoughts
-  getthoughts(req, res) {
+  getThoughts(req, res) {
     thoughts.find()
       .then(async (thoughts) => {
         const thoughtsObj = {
