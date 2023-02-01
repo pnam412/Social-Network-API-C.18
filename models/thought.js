@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
-const Reaction = require('./Reaction');
+const reaction = require('./reaction');
 
 // Schema to create Post model
-const reactionSchema = new Schema(
+const ThoughtSchema = new Schema(
   {
     published: {
       type: Boolean,
@@ -21,7 +21,7 @@ const reactionSchema = new Schema(
       minLength: 15,
       maxLength: 500,
     },
-    reaction: [Reaction],
+    reaction: [reaction],
   },
   {
     toJSON: {
@@ -31,15 +31,15 @@ const reactionSchema = new Schema(
   }
 );
 
-// Create a virtual property `getTags` that gets the amount of tags associated with an application
-reactionSchema
-  .virtual('getReaction')
+// Create a virtual property `getReaction` that gets the amount of tags associated with an application
+ThoughtSchema
+  .virtual('getResponses')
   // Getter
   .get(function () {
     return this.reaction.length;
   });
 
 // Initialize our Application model
-const Reaction = model('reaction', reactionSchema);
+const Thought = model('thought', ThoughtSchema);
 
-module.exports = Reaction;
+module.exports = Thought;

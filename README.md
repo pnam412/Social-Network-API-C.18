@@ -9,7 +9,7 @@ I created a social network API so I could use it with insomnia to be able to cre
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
-- [Installation](Usie mongoose to sync to the MongoDB database)
+- [Installation](Use mongoose to sync to the MongoDB database)
 - [Usage](Get API routes in insomnia)
 - [License](MIT license)
 
